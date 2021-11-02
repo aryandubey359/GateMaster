@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../GateMaster/GateMaster.css">
+    <title>Register - GateMaster</title>
+</head>
+<script>  
+    function checkPassword(form) 
+    {
+		password1 = form.password1.value;
+		password2 = form.password2.value;				
+		if (password1 != password2) 
+        {
+			alert ("\nPassword did not match: Please try again...")
+			return false;
+		}
+		else
+        {
+			alert("\nRegistered Successfully! Welcome to GateMaster!")
+			return true;
+		}
+	}
+</script>
+<style>
+    form
+    {
+        background: linear-gradient(135deg, #71b7e6, #9b59b6)
+    }
+    p
+    {
+        clear: both;
+        font-weight: bolder;
+        font-size: inherit;
+        float: initial;
+    }
+    input,select
+    {
+        width: 70%;
+        padding: 10px;
+        border: 1px solid #cccc;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        float: right;
+    }
+    input[type="submit"]
+    {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        float: inline-start;
+        cursor: pointer ;
+        width: 10%;
+        float: none;
+    }
+    input[type="reset"]
+    {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        float: inline-end;
+        cursor: pointer;
+        width: 10%;
+        float: none;
+    }
+</style>
+<body>
+    <Header>
+        <center>
+            <img src="../GateMaster/Logo.jpeg">
+        </center>
+    </Header>
+    <center>
+    <h2>Registration Form</h2>
+    </center>
+        <form action="" onSubmit = "return checkPassword(this)">
+            <fieldset>
+                <center>
+                    <p>Name:* <input type="text" name="name" id="name" required></p>
+                <p>Contact:* <input type="number" name="contact" id="contact"></p>
+                <p>Date of Birth:* <input type="date" name="date" id="date"></p>
+                <p>Email:* <input type="email" name="email" id="email" required></p>
+                <p>Password:* <input type="password" name="password1" id="password1" required></p>
+                <p>Confirm Password:* <input type="password" name="password2" id="password2" required></p>
+                <p>
+                    Stream:* 
+                    <select name="stream" id="stream" required>
+                        <option value="">--Select a Stream--</option>
+                        <option value="CSE">Computer Science Engineering</option>
+                        <option value="INFT">Information Technology</option>
+                        <option value="INST">Instrumentation Engineering</option>
+                        <option value="EXTC">Electronics And Telecommunication Engineering</option>
+                        <option value="ETRX">Electrical Engineering</option>
+                        <option value="ME">Mechanical Engineering</option>
+                        <option value="CE">Civil Engineering</option>
+                    </select>
+                </p>
+                <p>
+                </center>
+                    <center>
+                        <input type="submit" value="Register">
+                        <input type="reset" value="Reset">
+                    </center>
+                </p>
+            </fieldset>
+        </form>
+    </body>
+</html>

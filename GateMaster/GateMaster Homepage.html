@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../GateMaster/GateMaster.css">
+    <title>Homepage - GateMaster</title>
+</head>
+<script>  
+    function checkPassword(form) 
+    {
+		password1 = form.password1.value;
+		password2 = form.password2.value;				
+		if (password1 != password2) 
+        {
+			alert ("\nPassword did not match: Please try again...")
+			return false;
+		}
+		else
+        {
+			alert("\nRegistered Successfully! Welcome to GateMaster!")
+			return true;
+		}
+	}
+</script>
+<style>
+    p
+    {
+        clear: both;
+        font-weight: bolder;
+        font-size: inherit;
+        float: initial;
+    }
+    input,select
+    {
+        width: 70%;
+        padding: 10px;
+        border: 1px solid #cccc;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        float: right;
+    }
+    input[type="submit"]
+    {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        float: inline-start;
+        cursor: pointer ;
+        width: 20%;
+        float: none;
+    }
+    input[type="reset"]
+    {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        float: inline-end;
+        cursor: pointer;
+        width: 20%;
+        float: none;
+    }
+    aside
+    {
+        clear: left;
+        float: right;
+        width: 40%;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    fieldset
+    {
+        clear: both;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6)
+    }
+    div
+    {
+        float: left;
+    }
+    .container
+    {
+        float: left;
+        width: 50%;
+        margin: auto;
+        overflow: hidden;
+        background: white;
+        margin-top: 20px;
+    }
+
+    .container ul 
+    {
+        padding: 0px;
+        margin: 0px;
+    }
+    .container ul li
+    {
+        float:left;
+        list-style: none;
+        width:42%;
+        height:300px;
+        background: white;
+        margin :20px 0px 20px 55px; 
+        border:2px solid blueviolet;
+        box-sizing: border-box;
+        border-radius: 20px;
+    }
+    .container ul li .bottom
+    {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        background: #333;   
+        text-align: center;
+        color:white;
+        font-size: 20px;
+        border-radius: 20px;
+    }
+    .container ul li .top
+    {
+        width: 100%;
+        height: 200p    x;
+        line-height: 30px;
+        font-size: 15px;
+        text-align: center;
+        font-weight: bolder;
+    }
+</style>
+<body>
+    <header>
+        <center>
+        <img src="../GateMaster/Logo.jpeg" width="20%" height="20%">
+        </center>
+    </header>
+    <nav>
+        <center>
+        <a href="GateMaster Homepage.html">Home</a>
+        <a href="Stream.html">Streams</a>
+        <a href="Mentor.html">Mentor</a>
+        <a href="About Gate.html">About GATE</a>
+        <a href="Log Out.html">Log Out</a>
+        </center>
+    </nav>
+    <br>
+    <aside>
+        <form action="" onSubmit = "return checkPassword(this)">
+            <fieldset>
+                <center>
+                    <h2><u>Registration Form</u></h2>
+                </center>
+                <p>Name:* <input type="text" name="name" id="name" required></p>
+                <p>Contact:* <input type="number" name="contact" id="contact"></p>
+                <p>Date of Birth:* <input type="date" name="date" id="date"></p>
+                <p>Email:* <input type="email" name="email" id="email" required></p>
+                <p>Password:* <input type="password" name="password1" id="password1" required></p>
+                <p>Confirm Password:* <input type="password" name="password2" id="password2" required></p>
+                <p>
+                    Stream:* 
+                    <select name="stream" id="stream" required>
+                        <option value="">--Select a Stream--</option>
+                        <option value="CSE">Computer Science Engineering</option>
+                        <option value="INFT">Information Technology</option>
+                        <option value="INST">Instrumentation Engineering</option>
+                        <option value="EXTC">Electronics And Telecommunication Engineering</option>
+                        <option value="ETRX">Electrical Engineering</option>
+                        <option value="ME">Mechanical Engineering</option>
+                        <option value="CE">Civil Engineering</option>
+                    </select>
+                </p>
+                <p>
+                    <center>
+                        <input type="submit" value="Register">
+                        <input type="reset" value="Reset">
+                    </center>
+                </p>
+                <center>
+                    <p>Already an user?
+                    <a href="Login.html"><b>Login</b></a></p>
+                </center>
+                </fieldset>
+        </form>
+    </aside>
+    <div class="container">
+        <ul>
+            <li>
+                <div class="bottom">
+                    <ul>Multi-Branches Study Material</ul>
+                    <img src="https://img.icons8.com/nolan/120/web.png" class="img-fluid">
+                </div>
+                <div class="top">
+                    <ul> <br><br><br><br>Our websites contains video lectures and notes on different topic for better preparation of the students.</ul>
+                </div>
+            </li>
+            <li>
+                <div class="bottom">
+                    <ul>Solve It Now</ul>
+                    <img src="https://img.icons8.com/nolan/120/multi-edit.png" class="img-fluid">
+                </div>
+                <div class="top">
+                    <ul> <br><br><br><br>  Our website also contains previous year Question Papers both with and without solutions, so that students get a fair idea of the exam.</ul>
+                </div>
+            </li>
+            <li>
+                <div class="bottom">
+                    <ul>Question Our Mentor</ul>
+                    <img src="https://img.icons8.com/nolan/120/help--v1.png" class="img-fluid"> 
+                </div>
+                <div class="top">
+                    <ul> <br><br><br><br> Our website has a mentor facility which students can avail for a one on one guiding session.</ul>
+                </div>
+            </li>
+            <li>
+                <div class="bottom">
+                    <ul>Review and Feedback</ul>
+                    <img src="https://img.icons8.com/nolan/120/financial-growth-analysis.png"class="img-fluid">
+                </div>
+                <div class="top">
+                    <ul> <br><br><br><br>Please review our website, the services we provide  and also let us know how we can improve ourselves.</ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        <nav>
+            <a href="About Us.html">About Us</a>
+            <a href="Terms of Use.html">Terms of Use</a>
+            <a href="Contact.html">Contact Us</a>
+            <a href="Feedback.html">Reviews and Feedback</a>
+            <a href="Privacy Policy.html">Privacy Policy</a>
+            <a href="">&copy;2021 | GateMaster Educational Services Pvt.Ltd.</a>
+        </nav> 
+    </footer>
+</body>
+</html>

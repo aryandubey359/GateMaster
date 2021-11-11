@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <link rel="stylesheet" href="../GateMaster/GateMaster.css"> -->
+        <title>Homepage - GateMaster</title>
+    </head>
+    <script>  
+    function checkPassword(form) 
+    {
+		password1 = form.password1.value;
+		password2 = form.password2.value;				
+		if (password1 != password2) 
+        {
+			alert ("\nPassword did not match: Please try again...")
+			return false;
+		}
+		else
+        {
+			alert("\nRegistered Successfully! Welcome to GateMaster!")
+			return true;
+		}
+	}
+</script>
+    <style>
+    p
+    {
+        clear: both;
+        font-weight: bolder;
+        font-size: inherit;
+        float: initial;
+    }
+    input,select
+    {
+        width: 70%;
+        padding: 10px;
+        border: 1px solid #cccc;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        float: right;
+    }
+    input[type="submit"]
+    {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        float: inline-start;
+        cursor: pointer ;
+        width: 20%;
+        float: none;
+    }
+    input[type="reset"]
+    {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        float: inline-end;
+        cursor: pointer;
+        width: 20%;
+        float: none;
+    }
+    aside
+    {
+        padding-top: 200px;
+        clear: left;
+        float: right;
+        width: 40%;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    fieldset
+    {
+        clear: both;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #71b7e6, #9b59b6)
+    }
+    div
+    {
+        float: left;
+    }
+    .container
+    {
+        float: left;
+        width: 50%;
+        margin: auto;
+        overflow: hidden;
+        background: white;
+        margin-top: 20px;
+    }
+
+    .container ul
+    {
+        padding: 0px;
+        margin: 0px;
+    }
+
+
+    .container ul li
+    {
+        float:left;
+        list-style: none;
+        width:42%;
+        height:300px;
+        background: white;
+        margin :20px 0px 20px 55px; 
+        border:2px solid blueviolet;
+        box-sizing: border-box;
+        border-radius: 20px;
+    }
+    .container ul li .bottom
+    {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        background: #333;   
+        text-align: div;
+        color:white;
+        font-size: 20px;
+        border-radius: 20px;
+    }
+    .container ul li .top
+    {
+        width: 100%;
+        height: 200 px;
+        line-height: 30px;
+        font-size: 15px;
+        text-align: div;
+        font-weight: bolder;
+    }
+</style>
+    <body>
+        <header>
+                <img src="assets/images/Logo.jpeg" width="25%" height="25%">
+        </header>
+
+        <br>
+        <aside>
+
+            <!-- <div style="color:black">
+                {{name}}
+            </div> -->
+
+            <!-- Login Form -->
+            <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+                <br>
+
+                <!-- email Input -->
+                <div id="logincreds">
+                    <div class="form-group">
+                        <label id="input_label"
+                            for="email">Email:</label>
+                        <input #email="ngModel"
+                            required
+                            type="text" class="form-control"
+                            id="email"
+                            aria-describedby="email" placeholder="Enter email" ngModel name="email">
+                    </div>
+                    <!-- email Input -->
+
+
+                    <!-- password Input -->
+                    <div class="form-group">
+                        <label id="input_label"
+                            for="password">Password:</label>
+                        <input #password="ngModel"
+                            required
+                            type="password" class="form-control"
+                            id="password"
+                            aria-describedby="password" placeholder="Enter Password" ngModel name="password">
+                    </div>
+                    <!-- password Input -->
+
+
+                    <!-- Submit Button -->
+                    <div class="btns">
+                        <button id="submit_button" type="submit"
+                        class="btn
+                        btn-success">Login</button>
+                    </div>
+                    <!-- Submit Button -->
+
+                    <div *ngIf="err === true">
+                        <h5 style="color:red">Invalid Email or Password</h5>
+                    </div>
+
+
+                </div>
+            </form>
+            <!-- Login Form -->
+
+        </aside>
+        <div class="container">
+            <ul>
+                <li>
+                    <div class="bottom">
+                        <ul>Multi-Branches Study Material</ul>
+                        <img src="https://img.icons8.com/nolan/120/web.png"
+                            class="img-fluid">
+                    </div>
+                    <div class="top">
+                        <ul> <br><br><br><br>Our websites contains video
+                            lectures and notes on different topic for better
+                            preparation of the students.</ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="bottom">
+                        <ul>Solve It Now</ul>
+                        <img
+                            src="https://img.icons8.com/nolan/120/multi-edit.png"
+                            class="img-fluid">
+                    </div>
+                    <div class="top">
+                        <ul> <br><br><br><br> Our website also contains previous
+                            year Question Papers both with and without
+                            solutions, so that students get a fair idea of the
+                            exam.</ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="bottom">
+                        <ul>Question Our Mentor</ul>
+                        <img src="https://img.icons8.com/nolan/120/help--v1.png"
+                            class="img-fluid">
+                    </div>
+                    <div class="top">
+                        <ul> <br><br><br><br> Our website has a mentor facility
+                            which students can avail for a one on one guiding
+                            session.</ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="bottom">
+                        <ul>Review and Feedback</ul>
+                        <img
+                            src="https://img.icons8.com/nolan/120/financial-growth-analysis.png"
+                            class="img-fluid">
+                    </div>
+                    <div class="top">
+                        <ul> <br><br><br><br>Please review our website, the
+                            services we provide and also let us know how we can
+                            improve ourselves.</ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
+
+<router-outlet></router-outlet>

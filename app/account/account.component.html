@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <script src="../Web-Mini-Project/jQuery.js"></script> -->
+        <link rel="stylesheet" href="./account.component.css">
+        <title>Homepage - GateMaster</title>
+    </head>
+    <script>  
+    function checkPassword(form) 
+    {
+		password1 = form.password1.value;
+		password2 = form.password2.value;				
+		if (password1 != password2) 
+        {
+			alert ("\nPassword did not match: Please try again...")
+			return false;
+		}
+		else
+        {
+			alert("\nRegistered Successfully! Welcome to GateMaster!")
+			return true;
+		}
+	}
+    $("#date").datepicker();
+</script>
+
+    <body>
+        
+        <header>
+                <img src="assets/images/Logo.jpeg" width="25%" height="25%">
+                <!-- <a href="assets/notes/CALCULUS.pdf" target="_blank" rel="noopener noreferrer">Calculus</a> -->
+        </header>
+        <br>
+        <aside>
+
+            <div *ngIf="otp_page === false">
+                <!-- Form -->
+                <form id=registrationForm #registrationForm="ngForm"
+                    (ngSubmit)="onSubmit(registrationForm)">
+                    <div>
+
+
+                        <!-- Close Icon -->
+                        <!-- <p onmouseover="" style="cursor:
+                            pointer;text-align:right;font-size:40px;"><a
+                                (click)="onClose()" style="color:black"
+                                class="close">&times;</a></p> -->
+                        <!-- Close Icon -->
+
+
+                        <!-- Customer Name -->
+                        <div class="form-group">
+                            <label id="input_label"
+                                for="name">Name</label>
+                            <input #name="ngModel"
+                                required
+                                type="text" class="form-control"
+                                placeholder="Enter Name"
+                                id="name"
+                                list="nameList"
+                                aria-describedby="name"
+                                ngModel
+                                name="name">
+                        </div>
+                        <!-- Customer Name -->
+
+                        <!-- Customer Contact -->
+                        <div class="form-group">
+                            <label id="input_label"
+                                for="contact">Mobile Number</label>
+                            <input #contact="ngModel"
+                                pattern=\d\d\d\d\d\d\d\d\d\d
+                                type="text" class="form-control"
+                                id="contact"
+                                list="contactList"
+                                aria-describedby="contact"
+                                placeholder="Enter Mobile Number"
+                                ngModel
+                                name="contact">
+
+                            <span id="input_label"
+                                *ngIf="contact.invalid &&
+                                contact.touched"
+                                style="color:red"><b>**Mobile Number
+                                    Should
+                                    be
+                                    10 digits</b></span>
+                        </div>
+                        <!-- Customer Contact -->
+
+
+                        <!-- Customer Email Adress -->
+                        <div class="form-group">
+                            <label id="input_label"
+                                for="email">Email</label>
+                            <input #email="ngModel"
+                                type="text" class="form-control"
+                                placeholder="Enter email id"
+                                id="email"
+                                aria-describedby="email"
+                                ngModel
+                                name="email">
+                        </div>
+                        <!-- Customer Email Adress -->
+
+
+                        <!-- Customer password -->
+                        <div class="form-group">
+                            <label id="input_label"
+                                for="password">Password</label>
+                            <input #password="ngModel"
+                                pattern="\d\d\d\d\d\d\d\d\d\d\d\d"
+                                type="password" class="form-control"
+                                placeholder="Enter Password"
+                                id="password"
+                                aria-describedby="password"
+                                ngModel
+                                name="password">
+                        </div>
+                        <!-- Customer password -->
+
+
+                        <!-- Customer confirm password -->
+                        <div class="form-group">
+                            <label id="input_label"
+                                for="confirm_password">Confirm Password</label>
+                            <input #confirm_password="ngModel"
+                                type="password" class="form-control"
+                                placeholder="Confirm Password"
+                                id="confirm_password"
+                                aria-describedby="confirm_password"
+                                ngModel
+                                name="confirm_password">
+                        </div>
+                        <!-- Customer confirm password -->
+
+
+                        <!-- Customer DOB -->
+                        <div class="form-group">
+                            <label id="input_label"
+                                for="dob">Date of Birth</label>
+                            <input #dob="ngModel"
+                                type="date" class="form-control"
+                                placeholder="Enter Date of Birth"
+                                id="dob"
+                                aria-describedby="dob"
+                                ngModel
+                                name="dob">
+                        </div>
+                        <!-- Customer DOB -->
+
+                        <!-- Stream -->
+                        <div class="form-group">
+
+                            <label id="input_label" style="color:black"
+                                for="sem">Select
+                                Stream</label>
+                            <div id="select_semester" class="select"
+                                class="input-group mb-3">
+                                <select required name="stream" ngModel
+                                    class="custom-select"
+                                    id="inputGroupSelect01" style="height: 46px;">
+                                    <option value="">--Select a Stream--</option>
+                                    <option value="CSE">Computer Science
+                                        Engineering</option>
+                                    <option value="INFT">Information Technology</option>
+                                    <option value="EXTC">Electronics And
+                                        Telecommunication Engineering</option>
+                                    <option value="ETRX">Electrical Engineering</option>
+                                    <option value="ME">Mechanical Engineering</option>
+                                    <option value="CE">Civil Engineering</option>
+                                </select>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="form-group" id="reglog">
+                                <button id="submit_button" type="submit"
+                                    class="btn btn-success">Register</button>
+
+                                    <button id="submit_button" type="submit"
+                                    class="btn btn-success"><a href="login">Already Registered, Login</a></button>
+                            </div>
+                            <!-- Submit Button -->
+                        </div>
+                        <!-- Stream -->
+
+
+
+                        <div *ngIf="err===true">
+                            <h5 style="color:red">**Password and Confirm Password
+                                does not match</h5>
+                        </div>
+
+                        <div *ngIf="emailerr===true">
+                            <h5 style="color:red">**Email already exist</h5>
+                        </div>
+
+                    </div>
+                </form>
+                <!-- Form -->
+            </div>
+
+            <div *ngIf="otp_page == true">
+
+                <!-- Add Form -->
+                <!-- Title -->
+                <h3>
+                    <br><br><br>
+                    <span id="title" class="pacificofont"><b><i>Add Business</i></b></span>
+                    <br><br><br>
+                </h3>
+                <!-- Title -->
+
+
+                <!-- Form -->
+                <form id=otpForm #otpForm="ngForm"
+                    (ngSubmit)="sendOTP(otpForm)">
+
+                    <div>
+
+                        <!-- Business Name -->
+                        <div class="form-group">
+                            <label style="position:relative;top:50px;" id="input_label"
+                                for="entered_otp">Enter the OTP sent to your email:</label>
+                            <input style="position:relative;top:50px;" #entered_otp="ngModel"
+                                type="text" class="form-control"
+                                placeholder="Enter OTP"
+                                id="entered_otp"
+                                list="businessList"
+                                aria-describedby="entered_otp" ngModel
+                                name="entered_otp">
+                        </div>
+                        <!-- Business Name -->
+
+                        <!-- Submit Button -->
+                        <button style="position:relative;top:50px;" id="submit_button" type="submit"
+                            class="btn
+                            btn-danger">Verify</button>
+                        <!-- Submit Button -->
+
+                    </div>
+                </form>
+                <!-- Form -->
+            </div>
+            <!-- Add Form -->
+
+        </aside>
+        <div class="container">
+            <ul>
+                <li>
+                    <div class="bottom">
+                        <ul>Multi-Branches Study Material</ul>
+                        <img src="https://img.icons8.com/nolan/120/web.png"
+                            class="img-fluid">
+                    </div>
+                    <div class="top">
+                        <ul> <br><br><br><br>Our websites contains video
+                            lectures and notes on different topic for better
+                            preparation of the students.</ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="bottom">
+                        <ul>Solve It Now</ul>
+                        <img
+                            src="https://img.icons8.com/nolan/120/multi-edit.png"
+                            class="img-fluid">
+                    </div>
+                    <div class="top">
+                        <ul> <br><br><br><br> Our website also contains previous
+                            year Question Papers both with and without
+                            solutions, so that students get a fair idea of the
+                            exam.</ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="bottom">
+                        <ul>Question Our Mentor</ul>
+                        <img src="https://img.icons8.com/nolan/120/help--v1.png"
+                            class="img-fluid">
+                    </div>
+                    <div class="top">
+                        <ul> <br><br><br><br> Our website has a mentor facility
+                            which students can avail for a one on one guiding
+                            session.</ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="bottom">
+                        <ul>Review and Feedback</ul>
+                        <img
+                            src="https://img.icons8.com/nolan/120/financial-growth-analysis.png"
+                            class="img-fluid">
+                    </div>
+                    <div class="top">
+                        <ul> <br><br><br><br>Please review our website, the
+                            services we provide and also let us know how we can
+                            improve ourselves.</ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+         <footer>
+      <nav id="Pvt">
+          <a href="">&copy;2021 | GateMaster Educational Services Pvt.Ltd.</a>
+      </nav> 
+  </footer>
+    </body>
+</html>
+
+<router-outlet></router-outlet>

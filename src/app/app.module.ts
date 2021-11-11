@@ -19,6 +19,15 @@ import { TermsofuseComponent } from './termsofuse/termsofuse.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CseComponent } from './cse/cse.component';
 import { EmComponent } from './em/em.component';
+import { DigitallogicComponent } from './digitallogic/digitallogic.component';
+import { CoaComponent } from './coa/coa.component';
+import { DatastructuresComponent } from './datastructures/datastructures.component';
+import { AlgorithmsComponent } from './algorithms/algorithms.component';
+import { TheoryofcomputationComponent } from './theoryofcomputation/theoryofcomputation.component';
+import { CompilerdesignComponent } from './compilerdesign/compilerdesign.component';
+import { OperatingsystemComponent } from './operatingsystem/operatingsystem.component';
+import { DatabasesComponent } from './databases/databases.component';
+import { ComputernetworksComponent } from './computernetworks/computernetworks.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +46,15 @@ import { EmComponent } from './em/em.component';
     HomepageComponent,
     CseComponent,
     EmComponent,
+    DigitallogicComponent,
+    CoaComponent,
+    DatastructuresComponent,
+    AlgorithmsComponent,
+    TheoryofcomputationComponent,
+    CompilerdesignComponent,
+    OperatingsystemComponent,
+    DatabasesComponent,
+    ComputernetworksComponent,
   ],
   imports: [
     BrowserModule,
